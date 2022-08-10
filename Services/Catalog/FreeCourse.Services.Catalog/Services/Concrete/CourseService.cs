@@ -11,15 +11,14 @@ using IResult = UdemyClone.Shared.Results.Abstract.IResult;
 
 namespace FreeCourse.Services.Catalog.Services.Concrete;
 
-public class CourseService : ICourseService
+public class CourseService :ICourseService
 {
     private readonly IMongoCollection<Course> _courseCollection;
     private readonly IMongoCollection<Category> _categoryCollection;
-    private readonly IMapper _mapper;
     private readonly IDatabaseSettings _databaseSettings;
+    private readonly IMapper _mapper;
 
-    public CourseService(IMapper mapper, IDatabaseSettings databaseSettings,
-        IMongoCollection<Category> categoryCollection)
+    public CourseService(IMapper mapper, IDatabaseSettings databaseSettings)
     {
         var mongoClient = new MongoClient(databaseSettings.ConnectionString);
         var db = mongoClient.GetDatabase(databaseSettings.DatabaseName);
@@ -30,7 +29,7 @@ public class CourseService : ICourseService
         ;
     }
 
-    public async Task<IDataResult<List<Course>>> GetAllAsync()
+    public async Task<IDataResult<List<Course>>> GetAllWithCategoriesAsync()
     {
         var courses = await _courseCollection.Find(_ => true).ToListAsync();
         if (courses.Any())
@@ -58,5 +57,11 @@ public class CourseService : ICourseService
         var course = _mapper.Map<Course>(courseCreateDto);
         await _courseCollection.InsertOneAsync(course);
         return new SuccessResult(ResponseMessages.Added("Course"));
+    }
+
+    public async Task<IDataResult<List<Course>>> GetAllAsync()
+    {
+        var result = await _courseCollection.Find(_ => true).ToListAsync();
+        return new SuccessDataResult<List<Course>>(result, ResponseMessages.Listed("Courses"));
     }
 }

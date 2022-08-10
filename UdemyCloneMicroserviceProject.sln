@@ -1,5 +1,6 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Services", "Services", "{E08D84E3-8DE7-4FF0-86D7-A02C2FD114C6}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Catalog", "Catalog", "{C4478384-822E-4BA5-9DB5-EB553DD14BB6}"
@@ -12,6 +13,12 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Shared", "Shared", "{BE5B4F
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UdemyClone.Shared", "Shared\UdemyClone.Shared\UdemyClone.Shared.csproj", "{1337CC5A-AB5F-499B-9FF8-D5C3AA4489DE}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "PhotoStock", "PhotoStock", "{113D99A8-7B8A-49C2-B88F-40C03B8CFAF7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UdemyClone.Services.PhotoStock", "Services\Services\PhotoStock\UdemyClone.Services.PhotoStock\UdemyClone.Services.PhotoStock.csproj", "{81647AD1-0A1E-44F7-94CA-C8EEA76A3C61}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "IdentityServer", "IdentityServer", "{74195D39-842E-4E72-B122-C36C2D565A72}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +28,8 @@ Global
 		{C4478384-822E-4BA5-9DB5-EB553DD14BB6} = {E08D84E3-8DE7-4FF0-86D7-A02C2FD114C6}
 		{5A6C549F-DF1F-4956-8A26-59F69627B324} = {C4478384-822E-4BA5-9DB5-EB553DD14BB6}
 		{1337CC5A-AB5F-499B-9FF8-D5C3AA4489DE} = {BE5B4FC1-479A-4F8A-A4D7-E5C2F8B61811}
+		{113D99A8-7B8A-49C2-B88F-40C03B8CFAF7} = {E08D84E3-8DE7-4FF0-86D7-A02C2FD114C6}
+		{81647AD1-0A1E-44F7-94CA-C8EEA76A3C61} = {113D99A8-7B8A-49C2-B88F-40C03B8CFAF7}
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{5A6C549F-DF1F-4956-8A26-59F69627B324}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
@@ -31,5 +40,9 @@ Global
 		{1337CC5A-AB5F-499B-9FF8-D5C3AA4489DE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1337CC5A-AB5F-499B-9FF8-D5C3AA4489DE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1337CC5A-AB5F-499B-9FF8-D5C3AA4489DE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{81647AD1-0A1E-44F7-94CA-C8EEA76A3C61}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{81647AD1-0A1E-44F7-94CA-C8EEA76A3C61}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{81647AD1-0A1E-44F7-94CA-C8EEA76A3C61}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{81647AD1-0A1E-44F7-94CA-C8EEA76A3C61}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

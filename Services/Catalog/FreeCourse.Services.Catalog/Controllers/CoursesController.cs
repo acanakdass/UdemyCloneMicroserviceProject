@@ -2,8 +2,6 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using FreeCourse.Services.Catalog.DTOs;
-using FreeCourse.Services.Catalog.Models;
 using FreeCourse.Services.Catalog.Services.Abstract;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -12,11 +10,11 @@ namespace FreeCourse.Services.Catalog.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class CategoriesController : CustomBaseController
+    public class CoursesController : CustomBaseController
     {
         private readonly ICategoryService _categoryService;
 
-        public CategoriesController(ICategoryService categoryService)
+        public CoursesController(ICategoryService categoryService)
         {
             _categoryService = categoryService;
         }
@@ -25,15 +23,10 @@ namespace FreeCourse.Services.Catalog.Controllers
         public async Task<IActionResult> GetAll()
         {
             var res = await _categoryService.GetAllAsync();
+            var ress = res;
             return CreateActionResult(res, StatusCodes.Status200OK);
         }
 
-        [HttpPost]
-        public async Task<IActionResult> Add(CategoryDto category)
-        {
-            var res = await _categoryService.AddAsync(category);
-            return Ok();
-        }
         [HttpGet("{id}")]
         public async Task<IActionResult> GetById(string id)
         {

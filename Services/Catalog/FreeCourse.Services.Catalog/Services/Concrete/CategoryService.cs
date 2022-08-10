@@ -26,12 +26,6 @@ public class CategoryService:ICategoryService
         _databaseSettings = databaseSettings;
     }
 
-    public async Task<IDataResult<List<Category>>> GetAllAsync()
-    {
-        var categories = await _categoryCollection.Find(_ => true).ToListAsync();
-        return new SuccessDataResult<List<Category>>(categories, ResponseMessages.Listed("Categories"));
-    }
-
     public async Task<IDataResult<Category>> GetByIdAsync(string id)
     {
         var category = await _categoryCollection.Find(x => x.Id == id).FirstOrDefaultAsync();
@@ -46,5 +40,11 @@ public class CategoryService:ICategoryService
         var category = _mapper.Map<Category>(categoryDto);
         await _categoryCollection.InsertOneAsync(category);
         return new SuccessResult(ResponseMessages.Added("Category"));
+    }
+
+    public async Task<IDataResult<List<Category>>> GetAllAsync()
+    {
+        var result = await _categoryCollection.Find(_ => true).ToListAsync();
+        return new SuccessDataResult<List<Category>>(result, ResponseMessages.Listed("Categories"));
     }
 }

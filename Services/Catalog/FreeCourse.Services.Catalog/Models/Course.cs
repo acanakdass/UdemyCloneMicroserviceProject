@@ -3,12 +3,12 @@ using MongoDB.Bson.Serialization.Attributes;
 
 namespace FreeCourse.Services.Catalog.Models;
 
-public class Course
+public class Course:IModel
 {
+    
     [BsonId]
     [BsonRepresentation(BsonType.ObjectId)]
     public string Id { get; set; }
-
     public string Name { get; set; }
 
     [BsonRepresentation(BsonType.Decimal128)]

@@ -1,5 +1,6 @@
 using System.Reflection;
 using FreeCourse.Services.Catalog.Helpers.AppSettingsAccessHelper;
+using FreeCourse.Services.Catalog.Mappers;
 using FreeCourse.Services.Catalog.Services.Abstract;
 using FreeCourse.Services.Catalog.Services.Concrete;
 using Microsoft.Extensions.Options;
@@ -14,7 +15,7 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 // builder.Services.AddAutoMapper(Assembly.GetExecutingAssembly());
-builder.Services.AddAutoMapper(typeof(StartupBase));
+builder.Services.AddAutoMapper(typeof(StartupBase),typeof(GeneralMapperProfile));
 builder.Services.AddSingleton<ICategoryService, CategoryService>();
 builder.Services.AddSingleton<ICourseService, CourseService>();
 

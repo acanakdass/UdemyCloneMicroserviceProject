@@ -11,6 +11,5 @@ public class GeneralMapperProfile:Profile
         CreateMap<Course, CourseDto>().ReverseMap();
         CreateMap<Category, CategoryDto>().ReverseMap();
         CreateMap<Feature, FeatureDto>().ReverseMap();
-        
     }
 }

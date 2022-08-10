@@ -2,6 +2,7 @@ namespace UdemyClone.Shared.Constants;
 
 public static class ResponseMessages
 {
+    public const string ImageSaved = "The image saved succesfully";
     public static string Added(string fieldName) => $"{fieldName} added successfully";
     public static string FailedAdd(string fieldName) => $"An error occured while adding {fieldName} ";
     public static string Listed(string fieldName) => $"{fieldName} listed successfully";

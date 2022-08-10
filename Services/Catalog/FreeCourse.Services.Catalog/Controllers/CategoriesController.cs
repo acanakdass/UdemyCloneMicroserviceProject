@@ -7,6 +7,7 @@ using FreeCourse.Services.Catalog.Models;
 using FreeCourse.Services.Catalog.Services.Abstract;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using UdemyClone.Shared.Controllers;
 
 namespace FreeCourse.Services.Catalog.Controllers
 {

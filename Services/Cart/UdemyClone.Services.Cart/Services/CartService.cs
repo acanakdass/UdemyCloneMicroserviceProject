@@ -25,7 +25,7 @@ public class CartService : ICartService
         }
 
         return new SuccessDataResult<CartDto>(JsonSerializer.Deserialize<CartDto>(cart),
-            ResponseMessages.NotFound("Cart"));
+            ResponseMessages.Listed("Cart"));
     }
 
     public async Task<IResult> SaveOrUpdate(CartDto cartDto)

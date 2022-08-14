@@ -11,6 +11,7 @@ using UdemyClone.Shared.Controllers;
 
 namespace FreeCourse.Services.Catalog.Controllers
 {
+
     [Route("api/[controller]")]
     [ApiController]
     public class CategoriesController : CustomBaseController

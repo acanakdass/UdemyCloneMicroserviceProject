@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using UdemyClone.IdentityServer.DTOs;
 using UdemyClone.IdentityServer.Models;
+using System.IdentityModel.Tokens.Jwt;
 using static IdentityServer4.IdentityServerConstants;
 
 namespace UdemyClone.IdentityServer.Controllers
@@ -42,6 +43,16 @@ namespace UdemyClone.IdentityServer.Controllers
         {
             var users = _userManager.Users.ToList();
             return Ok(users);
+        }
+        [HttpGet("/GetHttpUser")]
+        public async Task<IActionResult> GetUserByToken()
+        {
+            var userIdClaim = User.Claims.FirstOrDefault(x => x.Type == JwtRegisteredClaimNames.Sub);
+            if (userIdClaim == null) return BadRequest();
+            var user = await _userManager.FindByIdAsync(userIdClaim.Value);
+            if (user == null) return BadRequest();
+            var applicationUser = new ApplicationUser { Id = user.Id, UserName = user.UserName, Email = user.Email }; 
+            return Ok(applicationUser);
         }
     }
 }
